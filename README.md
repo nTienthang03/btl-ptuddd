@@ -1,1377 +1,501 @@
+# BÀI TẬP LỚN - PHÁT TRIỂN ỨNG DỤNG TRÊN THIẾT BỊ DI ĐỘNG
 
-# BÀI TẬP LỚN
+## Thông tin sinh viên
 
-## Môn học: Phát triển ứng dụng trên thiết bị di động - TEE0419
-
-**Sinh viên thực hiện:** Nguyễn Tiến Thắng
-**Mã sinh viên:** K225480106058
-**Lớp:** K58 KTP
-
----
-
-# PHẦN 1. APP TRÊN MIT APP INVENTOR
-
-## 1.1. Mục tiêu
-
-Xây dựng một ứng dụng bằng công cụ **MIT App Inventor** gồm 3 màn hình:
-
-* **Screen1 - About:** Giới thiệu bản thân và có nút chuyển sang 2 màn hình còn lại.
-* **Screen2 - Giải bài toán đơn giản:** Giải phương trình bậc nhất dạng `ax + b = 0`.
-* **Screen3 - WebView:** Hiển thị một trang web có sẵn, hỗ trợ giao diện điện thoại.
-
-Ứng dụng tập trung vào quy trình tạo phần mềm bằng cách kéo thả giao diện và kéo thả block xử lý sự kiện.
+* **Môn học:** Phát triển ứng dụng trên thiết bị di động - TEE0419
+* **Sinh viên thực hiện:** Nguyễn Tiến Thắng
+* **Mã sinh viên:** K225480106058
+* **Lớp:** K58 KTP
+* **Tên bài tập:** Xây dựng ứng dụng di động bằng MIT App Inventor và Android Studio
 
 ---
 
-## 1.2. Thiết kế Screen1 - About
+## 1. Mục tiêu bài tập
 
-### Chức năng
+Bài tập lớn gồm 2 phần chính:
 
-Screen1 dùng để giới thiệu thông tin sinh viên và điều hướng sang các màn hình khác.
+1. Xây dựng ứng dụng bằng **MIT App Inventor**.
+2. Xây dựng ứng dụng tương đương bằng **Android Studio**, sử dụng ngôn ngữ **Java**.
 
-### Thành phần sử dụng
-
-| Thành phần          | Chức năng                              |
-| ------------------- | -------------------------------------- |
-| VerticalArrangement | Chứa các đối tượng theo chiều dọc      |
-| Label               | Hiển thị tiêu đề và thông tin cá nhân  |
-| Button              | Chuyển sang Screen2 và Screen3         |
-| Image               | Hiển thị ảnh đại diện hoặc logo trường |
-
-### Nội dung hiển thị
-
-Thông tin gồm:
-
-* Họ tên: Nguyễn Tiến Thắng
-* MSSV: K225480106058
-* Lớp: K58 KTP
-* Môn học: Phát triển ứng dụng trên thiết bị di động
-* Tên ứng dụng: App giải toán và hiển thị WebView
-
-### Cách kéo thả và thay đổi thuộc tính
-
-Trong MIT App Inventor, sinh viên mở phần **Designer**, sau đó kéo các thành phần từ bảng **Palette** sang vùng thiết kế.
-
-Ví dụ:
-
-* Kéo `VerticalArrangement` vào màn hình để gom các thành phần con.
-* Kéo `Label` vào để hiển thị thông tin.
-* Kéo `Button` vào để tạo nút bấm.
-* Kéo `Image` vào để hiển thị ảnh.
-
-Sau khi kéo thả, thay đổi thuộc tính ở bảng **Properties**:
-
-* `Text`: thay đổi nội dung hiển thị.
-* `FontSize`: chỉnh cỡ chữ.
-* `TextColor`: chỉnh màu chữ.
-* `BackgroundColor`: chỉnh màu nền.
-* `Width`: đặt `Fill parent` để chiếm toàn bộ chiều ngang.
-* `Height`: đặt `Automatic` hoặc số cụ thể.
-* `TextAlignment`: căn giữa nội dung.
-
-Việc thay đổi thuộc tính giúp giao diện dễ nhìn, phù hợp với màn hình điện thoại và giúp người dùng thao tác thuận tiện hơn.
+Mục tiêu của bài tập là giúp sinh viên hiểu quy trình tạo ứng dụng di động từ mức kéo thả trực quan đến mức lập trình Android gốc. Ngoài ra, bài tập còn yêu cầu tìm hiểu cách thiết kế giao diện, xử lý sự kiện, sử dụng WebView, gọi API, khai báo quyền trong AndroidManifest và tổ chức tài nguyên trong project.
 
 ---
 
-## 1.3. Thiết kế Screen2 - Giải bài toán đơn giản
+# PHẦN 1: ỨNG DỤNG MIT APP INVENTOR
 
-### Bài toán chọn
+## 2. Giới thiệu App MIT App Inventor
 
-Giải phương trình bậc nhất:
+Ứng dụng được xây dựng bằng công cụ MIT App Inventor. App gồm 3 màn hình chính:
+
+* **Screen1:** About - hiển thị thông tin cá nhân và có nút chuyển sang 2 màn hình còn lại.
+* **Screen2:** Giải bài toán đơn giản - giải phương trình bậc nhất dạng `ax + b = 0`.
+* **Screen3:** WebView - hiển thị một trang web có sẵn, hỗ trợ giao diện điện thoại.
+
+---
+
+## 3. Quy trình tạo ứng dụng trên MIT App Inventor
+
+### Bước 1: Tạo project
+
+Truy cập trang MIT App Inventor:
+
+```text
+https://ai2.appinventor.mit.edu/
+```
+
+Sau đó đăng nhập bằng tài khoản Google và tạo project mới:
+
+```text
+Projects → Start new project
+```
+
+Tên project được đặt theo nội dung bài tập và mã sinh viên:
+
+```text
+MIT_GiaiToan_WebView_K225480106058
+```
+
+---
+
+### Bước 2: Tạo 3 Screen
+
+Trong project, tạo 3 màn hình:
+
+```text
+Screen1
+Screen2
+Screen3
+```
+
+Ý nghĩa từng màn hình:
+
+| Screen  | Chức năng                           |
+| ------- | ----------------------------------- |
+| Screen1 | About, hiển thị thông tin sinh viên |
+| Screen2 | Giải phương trình ax + b = 0        |
+| Screen3 | Hiển thị trang web bằng WebViewer   |
+
+---
+
+## 4. Thiết kế Screen1 - About
+
+Screen1 dùng để hiển thị thông tin cá nhân và có 2 nút chuyển màn hình.
+
+Các component sử dụng:
+
+| Component             | Mục đích                              |
+| --------------------- | ------------------------------------- |
+| Label                 | Hiển thị họ tên, MSSV, lớp, môn học   |
+| Button                | Chuyển sang màn hình giải toán        |
+| Button                | Chuyển sang màn hình WebView          |
+| VerticalArrangement   | Sắp xếp các thành phần theo chiều dọc |
+| HorizontalArrangement | Sắp xếp 2 nút theo chiều ngang        |
+
+Thông tin hiển thị:
+
+```text
+BÀI TẬP LỚN MOBILE
+Họ tên: Nguyễn Tiến Thắng
+MSSV: K225480106058
+Lớp: K58 KTP
+Môn học: Phát triển ứng dụng trên thiết bị di động
+Tên ứng dụng: App giải toán và WebView
+```
+
+Xử lý chuyển màn hình bằng Blocks:
+
+```text
+when GiaiToan.Click
+do open another screen screenName "Screen2"
+
+when web.Click
+do open another screen screenName "Screen3"
+```
+
+---
+
+## 5. Thiết kế Screen2 - Giải toán
+
+Screen2 dùng để giải phương trình bậc nhất:
 
 ```text
 ax + b = 0
 ```
 
-Kết quả:
+Các component sử dụng:
 
-* Nếu `a = 0` và `b = 0`: phương trình có vô số nghiệm.
-* Nếu `a = 0` và `b ≠ 0`: phương trình vô nghiệm.
-* Nếu `a ≠ 0`: phương trình có nghiệm `x = -b / a`.
+| Component | Tên đặt | Mục đích                |
+| --------- | ------- | ----------------------- |
+| TextBox   | NhapA   | Nhập hệ số a            |
+| TextBox   | NhapB   | Nhập hệ số b            |
+| Button    | NutGiai | Thực hiện giải toán     |
+| Label     | KetQua  | Hiển thị kết quả        |
+| Button    | QuayLai | Quay lại màn hình trước |
 
-### Thành phần sử dụng
+### Lưu ý khi thiết kế TextBox
 
-| Thành phần | Chức năng                     |
-| ---------- | ----------------------------- |
-| Label      | Hiển thị tiêu đề và hướng dẫn |
-| TextBox    | Nhập hệ số a                  |
-| TextBox    | Nhập hệ số b                  |
-| Button     | Thực hiện giải toán           |
-| Label      | Hiển thị kết quả              |
-| Button     | Quay lại Screen1              |
-
-### Quy trình xử lý
-
-Người dùng nhập `a`, `b`, sau đó bấm nút **Giải**. App lấy dữ liệu từ TextBox, chuyển sang số và kiểm tra các trường hợp của phương trình.
-
----
-
-## 1.4. Thiết kế Screen3 - WebView
-
-### Chức năng
-
-Screen3 sử dụng WebView để hiển thị một trang web có sẵn.
-
-Trang web sử dụng:
+Để chữ “Nhập hệ số a” và “Nhập hệ số b” chỉ là chữ mờ gợi ý, cần cấu hình:
 
 ```text
-https://k58kmt.tdh.io.vn?masv=K225480106058
+Text: để trống
+Hint: Nhập hệ số a
+NumbersOnly: bật
 ```
 
-### Thành phần sử dụng
+Tương tự với ô nhập b:
 
-| Thành phần | Chức năng               |
-| ---------- | ----------------------- |
-| WebViewer  | Hiển thị trang web      |
-| Button     | Quay lại màn hình chính |
+```text
+Text: để trống
+Hint: Nhập hệ số b
+NumbersOnly: bật
+```
 
-### Ý nghĩa
-
-WebView giúp ứng dụng có thể hiển thị nội dung web ngay bên trong app, không cần mở trình duyệt ngoài. Trang web cần hỗ trợ giao diện điện thoại để người dùng xem dễ dàng trên màn hình nhỏ.
-
----
-
-## 1.5. Mô tả thanh công cụ trong MIT App Inventor
-
-MIT App Inventor gồm các khu vực chính:
-
-### Palette
-
-Chứa các thành phần để kéo thả vào ứng dụng, ví dụ:
-
-* User Interface: Label, Button, TextBox, Image.
-* Layout: VerticalArrangement, HorizontalArrangement.
-* Media: Image, Sound.
-* Connectivity: Web.
-* Sensors: LocationSensor, Clock.
-* Storage: TinyDB.
-* User Interface nâng cao: WebViewer.
-
-### Viewer
-
-Là vùng mô phỏng màn hình điện thoại. Sinh viên kéo thả các thành phần vào đây để thiết kế giao diện.
-
-### Components
-
-Hiển thị danh sách các thành phần đã được thêm vào app.
-
-### Properties
-
-Cho phép thay đổi thuộc tính của từng thành phần như chữ, màu sắc, kích thước, căn lề.
-
-### Media
-
-Dùng để upload ảnh, âm thanh hoặc file dữ liệu vào app.
+Không được nhập chữ gợi ý vào thuộc tính `Text`, vì khi đó app sẽ hiểu đó là dữ liệu thật.
 
 ---
 
-## 1.6. Mô tả bản chất của block trong MIT App Inventor
+## 6. Logic giải phương trình trong MIT App Inventor
 
-Trong MIT App Inventor, phần xử lý logic được thực hiện bằng cách kéo thả các **block**.
+Quy tắc xử lý:
 
-Block có bản chất giống như các câu lệnh lập trình. Thay vì viết code bằng tay, sinh viên ghép các khối lệnh lại với nhau.
+| Trường hợp        | Kết quả                      |
+| ----------------- | ---------------------------- |
+| a hoặc b rỗng     | Vui lòng nhập đủ a và b      |
+| a = 0 và b = 0    | Phương trình có vô số nghiệm |
+| a = 0 và b khác 0 | Phương trình vô nghiệm       |
+| a khác 0          | Nghiệm x = -b/a              |
+
+Block xử lý chính:
+
+```text
+when NutGiai.Click
+do
+    if NhapA.Text = "" or NhapB.Text = ""
+        set KetQua.Text to "Vui lòng nhập đủ a và b"
+    else if NhapA.Text = 0 and NhapB.Text = 0
+        set KetQua.Text to "Phương trình có vô số nghiệm"
+    else if NhapA.Text = 0
+        set KetQua.Text to "Phương trình vô nghiệm"
+    else
+        set KetQua.Text to join "Nghiệm x = " ((0 - NhapB.Text) / NhapA.Text)
+```
+
+Công thức nghiệm:
+
+```text
+x = -b / a
+```
+
+Trong App Inventor biểu diễn là:
+
+```text
+(0 - NhapB.Text) / NhapA.Text
+```
+
+---
+
+## 7. Thiết kế Screen3 - WebView
+
+Screen3 sử dụng component WebViewer để mở trang web có sẵn.
+
+Các component sử dụng:
+
+| Component | Tên đặt    | Mục đích                |
+| --------- | ---------- | ----------------------- |
+| Button    | QuayLai2   | Quay lại màn hình trước |
+| WebViewer | WebHienThi | Hiển thị trang web      |
+
+Khi mở Screen3, WebViewer truy cập đường dẫn:
+
+```text
+https://k58kmt.tdh.io.vn/?masv=K225480106058
+```
+
+Block xử lý:
+
+```text
+when Screen3.Initialize
+do call WebHienThi.GoToUrl
+url "https://k58kmt.tdh.io.vn/?masv=K225480106058"
+```
+
+Nút quay lại:
+
+```text
+when QuayLai2.Click
+do close screen
+```
+
+---
+
+## 8. Mô tả thanh công cụ MIT App Inventor
+
+MIT App Inventor có các khu vực chính:
+
+| Khu vực        | Chức năng                                   |
+| -------------- | ------------------------------------------- |
+| Palette        | Chứa các component để kéo thả vào giao diện |
+| Viewer         | Khu vực xem trước giao diện app             |
+| Components     | Danh sách các component đã dùng             |
+| Properties     | Thay đổi thuộc tính component               |
+| Media / Assets | Upload hình ảnh, âm thanh, file dữ liệu     |
+| Designer       | Thiết kế giao diện                          |
+| Blocks         | Lập trình logic bằng block                  |
+
+---
+
+## 9. Bản chất của kéo thả và Blocks
+
+Trong MIT App Inventor, lập trình được thực hiện bằng cách kéo thả các khối lệnh. Mỗi block đại diện cho một câu lệnh, một điều kiện, một sự kiện hoặc một phép toán.
 
 Ví dụ:
 
-Khi người dùng bấm nút Giải:
-
 ```text
-when ButtonGiai.Click do
-    lấy giá trị a
-    lấy giá trị b
-    kiểm tra điều kiện
-    hiển thị kết quả
+when Button.Click
 ```
 
-Block thường gồm:
+có ý nghĩa tương tự một sự kiện click trong lập trình truyền thống.
 
-* Block sự kiện: xử lý khi người dùng click nút.
-* Block điều kiện: if/else.
-* Block toán học: cộng, trừ, nhân, chia.
-* Block biến: lưu dữ liệu tạm thời.
-* Block điều hướng: mở màn hình khác.
+### Ưu điểm của Blocks
 
----
-
-## 1.7. Ưu điểm của kéo thả block so với viết code
-
-### Ưu điểm
-
-* Dễ học với người mới bắt đầu.
+* Dễ sử dụng với người mới học.
+* Trực quan, dễ hiểu.
 * Giảm lỗi cú pháp.
-* Trực quan, dễ hiểu luồng xử lý.
-* Phù hợp để làm app đơn giản nhanh.
-* Không cần cài đặt môi trường lập trình phức tạp.
-* Có thể kiểm thử trực tiếp trên điện thoại.
+* Phù hợp để tạo app nhanh.
+* Không cần nhớ nhiều câu lệnh lập trình.
 
-### Nhược điểm
+### Nhược điểm của Blocks
 
-* Khó quản lý khi app lớn.
-* Khó tối ưu hiệu năng.
-* Không linh hoạt bằng viết code Java/Kotlin.
-* Giao diện và chức năng nâng cao bị hạn chế.
-* Khó làm việc nhóm với dự án lớn.
-* Khi nhiều block, màn hình dễ rối.
+* Khi app lớn, block dễ bị rối.
+* Khó quản lý logic phức tạp.
+* Không linh hoạt bằng viết code.
+* Khó tái sử dụng ở quy mô lớn.
 
 ---
 
-## 1.8. Copy paste block bằng Backpack
+## 10. Copy/Paste block bằng Backpack
 
-Trong MIT App Inventor có công cụ **Backpack** để sao chép block.
+Backpack là công cụ dùng để lưu và tái sử dụng block.
 
-### Cách sử dụng
+Cách dùng:
 
-* Kéo block cần sao chép vào biểu tượng Backpack.
-* Chuyển sang Screen khác hoặc Project khác.
-* Mở Backpack và kéo block ra để dùng lại.
+1. Kéo block cần lưu vào Backpack.
+2. Chuyển sang Screen hoặc project khác.
+3. Mở Backpack và kéo block ra dùng lại.
 
-### Ý nghĩa
+Lợi ích:
 
-Backpack giúp tái sử dụng block, giảm thời gian làm lại các logic giống nhau. Ví dụ, block quay lại màn hình chính hoặc block kiểm tra dữ liệu nhập có thể dùng lại ở nhiều screen.
+* Copy block nhanh.
+* Tái sử dụng logic.
+* Tiết kiệm thời gian.
+* Phù hợp khi nhiều Screen có xử lý giống nhau.
 
 ---
 
-# PHẦN 2. APP1 ANDROID STUDIO - ỨNG DỤNG DỮ LIỆU CHUẨN BỊ TRƯỚC TRONG ASSETS
+## 11. Sử dụng Assets trong MIT App Inventor
 
-## 2.1. Ý tưởng app
+Assets là nơi lưu các file đi kèm ứng dụng như:
 
-Tên app:
+* Hình ảnh.
+* Âm thanh.
+* File văn bản.
+* File JSON.
+* File HTML.
+
+Khi build app, các file trong Assets sẽ được đóng gói vào trong ứng dụng. Nhờ đó app có thể sử dụng dữ liệu ngay cả khi không có Internet.
+
+Ví dụ ứng dụng:
 
 ```text
-HuongDanHocAndroid
+App hướng dẫn giải phương trình bậc nhất
 ```
 
-App dùng dữ liệu chuẩn bị trước trong thư mục `assets` để hiển thị nội dung hướng dẫn học Android cơ bản.
-
-Ví dụ dữ liệu gồm các bài học:
-
-* Bài 1: Giới thiệu Android Studio.
-* Bài 2: AndroidManifest.xml.
-* Bài 3: Vòng đời Activity.
-* Bài 4: Layout XML.
-* Bài 5: Sự kiện click Button.
-* Bài 6: WebView và quyền Internet.
-
-Ứng dụng này có thể chạy offline vì dữ liệu đã được đóng gói sẵn trong app.
-
----
-
-## 2.2. Đặc thù dữ liệu
-
-Dữ liệu có dạng file JSON đặt trong thư mục:
+Dữ liệu có thể lưu trong file:
 
 ```text
-app/src/main/assets/lessons.json
+huongdan.txt
 ```
 
-Nội dung dữ liệu:
-
-```json
-[
-  {
-    "title": "Bài 1: Giới thiệu Android Studio",
-    "content": "Android Studio là công cụ chính thức để phát triển ứng dụng Android."
-  },
-  {
-    "title": "Bài 2: AndroidManifest.xml",
-    "content": "AndroidManifest.xml mô tả thông tin ứng dụng, activity, quyền và cấu hình app."
-  },
-  {
-    "title": "Bài 3: Vòng đời Activity",
-    "content": "Activity có các hàm onCreate, onStart, onResume, onPause, onStop và onDestroy."
-  },
-  {
-    "title": "Bài 4: Layout XML",
-    "content": "Layout XML dùng để mô tả giao diện người dùng của ứng dụng."
-  },
-  {
-    "title": "Bài 5: Sự kiện Button",
-    "content": "Khi người dùng click Button, app có thể chạy một đoạn code xử lý."
-  }
-]
-```
-
-Đặc thù dữ liệu:
-
-* Dữ liệu dạng danh sách.
-* Mỗi phần tử có tiêu đề và nội dung.
-* Dữ liệu cố định, không cần Internet.
-* Có thể đọc trực tiếp từ Assets khi app chạy.
-
----
-
-## 2.3. Thuật toán xử lý dữ liệu
-
-Thuật toán xử lý đơn giản:
+Nội dung file gồm:
 
 ```text
-Bước 1: Mở file lessons.json trong thư mục Assets.
-Bước 2: Đọc toàn bộ nội dung file.
-Bước 3: Chuyển chuỗi JSON thành JSONArray.
-Bước 4: Lặp qua từng phần tử.
-Bước 5: Lấy title và content.
-Bước 6: Ghép nội dung và hiển thị lên TextView.
+Công thức phương trình bậc nhất: ax + b = 0
+Nếu a khác 0 thì x = -b/a
+Nếu a = 0 và b = 0 thì phương trình có vô số nghiệm
+Nếu a = 0 và b khác 0 thì phương trình vô nghiệm
 ```
 
-Dữ liệu không cần tiền xử lý phức tạp vì đã được chuẩn bị đúng định dạng JSON.
+Lợi ích của dữ liệu offline:
+
+* Không cần mạng vẫn xem được.
+* Dữ liệu đi kèm app.
+* Phù hợp với app học tập, app hướng dẫn, app tra cứu.
 
 ---
 
-## 2.4. Đối tượng dùng để hiển thị dữ liệu
+# PHẦN 2: ỨNG DỤNG ANDROID STUDIO
 
-Có thể dùng:
+## 12. Giới thiệu App Android Studio
 
-* `TextView`: hiển thị toàn bộ bài học.
-* `ScrollView`: cho phép cuộn khi nội dung dài.
-* `LinearLayout`: sắp xếp các TextView theo chiều dọc.
+App2 được xây dựng bằng Android Studio, sử dụng ngôn ngữ Java.
 
----
+App gồm 3 Activity:
 
-## 2.5. Lợi ích của dữ liệu có sẵn trong Assets
+| Activity      | Chức năng                           |
+| ------------- | ----------------------------------- |
+| MainActivity  | About, hiển thị thông tin sinh viên |
+| SolveActivity | Giải toán và gửi API                |
+| WebActivity   | Hiển thị WebView                    |
 
-* App dùng được khi không có Internet.
-* Tốc độ truy cập nhanh.
-* Dữ liệu ổn định, không phụ thuộc server.
-* Phù hợp với app hướng dẫn, app học tập, app tài liệu, app tra cứu.
-* Khi biên dịch, toàn bộ file trong Assets sẽ đi theo app.
+Ứng dụng Android Studio có chức năng tương đương với app MIT App Inventor nhưng được xây dựng bằng code Java và giao diện XML.
 
 ---
 
-## 2.6. Cú pháp truy cập file trong Assets
+## 13. Tạo project Android Studio
 
-Trong Java:
+Các bước thực hiện:
 
-```java
-InputStream is = getAssets().open("lessons.json");
+1. Mở Android Studio.
+2. Chọn `New Project`.
+3. Chọn mẫu `Empty Views Activity`.
+4. Đặt tên project:
+
+```text
+MobileBTL
 ```
 
-Nếu file nằm trong thư mục con:
+5. Package name:
 
-```java
-InputStream is = getAssets().open("data/lessons.json");
+```text
+com.example.mobilebtl
 ```
+
+6. Language:
+
+```text
+Java
+```
+
+7. Minimum SDK:
+
+```text
+API 24 hoặc cao hơn
+```
+
+8. Chọn Finish để tạo project.
 
 ---
 
-## 2.7. Code đọc dữ liệu từ Assets
+## 14. Cấu trúc project Android Studio
 
-File:
+Các thư mục quan trọng:
+
+| Thư mục/File                  | Chức năng                     |
+| ----------------------------- | ----------------------------- |
+| manifests/AndroidManifest.xml | Khai báo quyền, activity, app |
+| java/com.example.mobilebtl    | Chứa code Java                |
+| res/layout                    | Chứa giao diện XML            |
+| res/values/strings.xml        | Chứa chuỗi văn bản            |
+| res/values/colors.xml         | Chứa màu                      |
+| res/values/themes.xml         | Chứa theme                    |
+| build.gradle                  | Cấu hình build project        |
+| assets                        | Chứa dữ liệu đi kèm app       |
+
+---
+
+## 15. Các file chính của App2
+
+### File Java
 
 ```text
 MainActivity.java
+SolveActivity.java
+WebActivity.java
 ```
 
-```java
-package com.example.huongdanhocandroid;
-
-import android.os.Bundle;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-
-public class MainActivity extends AppCompatActivity {
-
-    TextView txtContent;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        txtContent = findViewById(R.id.txtContent);
-        loadLessonsFromAssets();
-    }
-
-    private void loadLessonsFromAssets() {
-        try {
-            InputStream is = getAssets().open("lessons.json");
-            int size = is.available();
-
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-
-            String json = new String(buffer, StandardCharsets.UTF_8);
-            JSONArray array = new JSONArray(json);
-
-            StringBuilder builder = new StringBuilder();
-
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject lesson = array.getJSONObject(i);
-
-                String title = lesson.getString("title");
-                String content = lesson.getString("content");
-
-                builder.append(title)
-                        .append("\n")
-                        .append(content)
-                        .append("\n\n");
-            }
-
-            txtContent.setText(builder.toString());
-
-        } catch (Exception e) {
-            txtContent.setText("Lỗi đọc dữ liệu từ Assets: " + e.getMessage());
-        }
-    }
-}
-```
-
----
-
-## 2.8. Layout cho APP1
-
-File:
-
-```text
-res/layout/activity_main.xml
-```
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <TextView
-            android:id="@+id/txtTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app1_title"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:paddingBottom="16dp" />
-
-        <TextView
-            android:id="@+id/txtContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
-
-    </LinearLayout>
-</ScrollView>
-```
-
----
-
-# PHẦN 3. LÝ THUYẾT ANDROID STUDIO
-
-## 3.1. AndroidManifest.xml mô tả gì?
-
-File `AndroidManifest.xml` là file cấu hình quan trọng của ứng dụng Android.
-
-File này mô tả:
-
-* Tên package của app.
-* Các Activity có trong app.
-* Activity nào là màn hình chạy đầu tiên.
-* Các quyền app cần sử dụng.
-* Tên ứng dụng.
-* Icon ứng dụng.
-* Theme ứng dụng.
-* Cấu hình phần cứng, dịch vụ, receiver nếu có.
-
-Ví dụ:
-
-```xml
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <application
-        android:theme="@style/Theme.MobileApp"
-        android:label="@string/app_name"
-        android:icon="@mipmap/ic_launcher">
-
-        <activity android:name=".WebActivity" />
-        <activity android:name=".SolveActivity" />
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
-
-    </application>
-
-</manifest>
-```
-
----
-
-## 3.2. App cần quyền để do-st thì khai báo như thế nào?
-
-Nếu app cần truy cập Internet, cần khai báo quyền:
-
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-```
-
-Nếu app cần đọc vị trí, có thể khai báo:
-
-```xml
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-```
-
-Mục đích của khai báo quyền là để hệ điều hành biết ứng dụng muốn sử dụng tài nguyên nào của thiết bị.
-
----
-
-## 3.3. Vòng đời của một ứng dụng Android
-
-Một Activity trong Android có các hàm vòng đời chính:
-
-| Hàm         | Ý nghĩa                                             |
-| ----------- | --------------------------------------------------- |
-| onCreate()  | Được gọi khi Activity được tạo lần đầu              |
-| onStart()   | Activity bắt đầu hiển thị                           |
-| onResume()  | Activity sẵn sàng tương tác với người dùng          |
-| onPause()   | Activity bị che một phần hoặc chuẩn bị rời màn hình |
-| onStop()    | Activity không còn hiển thị                         |
-| onDestroy() | Activity bị huỷ                                     |
-| onRestart() | Activity được mở lại sau khi đã dừng                |
-
-Quy trình thường gặp:
-
-```text
-onCreate -> onStart -> onResume -> onPause -> onStop -> onDestroy
-```
-
----
-
-## 3.4. Vì sao code tự sinh có sẵn hàm onCreate?
-
-Khi tạo một project Android, Android Studio tự sinh hàm `onCreate()` vì đây là hàm khởi tạo đầu tiên của Activity.
-
-Trong `onCreate()`, lập trình viên thường thực hiện:
-
-* Gắn layout cho Activity bằng `setContentView`.
-* Ánh xạ các thành phần giao diện bằng `findViewById`.
-* Thiết lập sự kiện click.
-* Khởi tạo dữ liệu ban đầu.
-
-Ví dụ:
-
-```java
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_main);
-}
-```
-
----
-
-## 3.5. Code Java kiểm tra quyền
-
-Một số quyền nguy hiểm như vị trí, camera, bộ nhớ cần kiểm tra khi app chạy.
-
-Ví dụ kiểm tra quyền vị trí:
-
-```java
-if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION)
-        != PackageManager.PERMISSION_GRANTED) {
-
-    requestPermissions(
-            new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-            100
-    );
-} else {
-    // Đã có quyền, thực hiện chức năng cần dùng vị trí
-}
-```
-
-Ý nghĩa:
-
-* `checkSelfPermission`: kiểm tra app đã được cấp quyền chưa.
-* `requestPermissions`: xin quyền từ người dùng.
-* `PERMISSION_GRANTED`: trạng thái đã được cấp quyền.
-
-Lưu ý: Quyền Internet chỉ cần khai báo trong Manifest, không cần hỏi runtime permission.
-
----
-
-## 3.6. Giao diện Android mô tả bằng XML
-
-Trong Android Studio, giao diện thường nằm trong thư mục:
-
-```text
-res/layout
-```
-
-Ví dụ file:
+### File layout XML
 
 ```text
 activity_main.xml
+activity_solve.xml
+activity_web.xml
 ```
 
-Layout XML mô tả các thành phần giao diện như Button, TextView, EditText, LinearLayout, WebView.
-
----
-
-## 3.7. Hardcode là gì?
-
-Hardcode là viết trực tiếp giá trị vào file layout hoặc code.
-
-Ví dụ hardcode không nên dùng:
-
-```xml
-android:text="Xin chào"
-```
-
-Cách tốt hơn là đưa chuỗi vào file `strings.xml`:
-
-```xml
-android:text="@string/hello"
-```
-
-File:
+### File cấu hình và tài nguyên
 
 ```text
-res/values/strings.xml
-```
-
-```xml
-<resources>
-    <string name="hello">Xin chào</string>
-</resources>
+AndroidManifest.xml
+strings.xml
 ```
 
 ---
 
-## 3.8. Cú pháp tham chiếu tài nguyên
+## 16. MainActivity - Màn hình About
 
-Một số cú pháp thường dùng:
-
-```xml
-@string/app_name
-@color/primary
-@drawable/logo
-@mipmap/ic_launcher
-@layout/activity_main
-@style/AppTheme
-```
-
-Trong Java:
-
-```java
-getString(R.string.app_name);
-```
-
----
-
-## 3.9. Ưu điểm của tham chiếu tài nguyên
-
-* Tránh hardcode.
-* Dễ sửa nội dung ở một nơi.
-* Dễ hỗ trợ nhiều ngôn ngữ.
-* Dễ hỗ trợ nhiều theme sáng/tối.
-* Dễ hỗ trợ nhiều kích thước màn hình.
-* Giúp code và giao diện rõ ràng hơn.
-
----
-
-## 3.10. OS hỗ trợ tự động lấy giá trị theo Location, Language, Theme
-
-Android có cơ chế tự động chọn tài nguyên theo cấu hình thiết bị.
-
-Ví dụ:
-
-```text
-res/values/strings.xml          -> tiếng mặc định
-res/values-vi/strings.xml       -> tiếng Việt
-res/values-en/strings.xml       -> tiếng Anh
-res/values-night/colors.xml     -> màu cho chế độ tối
-res/drawable/                   -> ảnh mặc định
-res/drawable-night/             -> ảnh cho dark mode
-```
-
-Khi người dùng đổi ngôn ngữ, vùng miền hoặc theme, Android tự lấy tài nguyên phù hợp.
-
-Điều này giúp app:
-
-* Hỗ trợ đa ngôn ngữ.
-* Hỗ trợ dark mode/light mode.
-* Cá nhân hoá theo thiết lập người dùng.
-* Không cần viết quá nhiều code xử lý riêng.
-
----
-
-## 3.11. Đối tượng chứa trong layout
-
-Đối tượng chứa dùng để gộp các đối tượng con lại và sắp xếp theo quy luật.
-
-Ví dụ `LinearLayout`:
-
-```xml
-<LinearLayout
-    android:orientation="vertical"
-    android:gravity="center">
-</LinearLayout>
-```
-
-Một số thuộc tính:
-
-| Thuộc tính               | Ý nghĩa                      |
-| ------------------------ | ---------------------------- |
-| orientation="vertical"   | Sắp xếp con theo chiều dọc   |
-| orientation="horizontal" | Sắp xếp con theo chiều ngang |
-| gravity="center"         | Căn giữa nội dung bên trong  |
-| padding                  | Khoảng cách bên trong        |
-| margin                   | Khoảng cách bên ngoài        |
-
----
-
-## 3.12. Code tương tác với layout và tránh hardcode
-
-Không nên viết:
-
-```java
-txtResult.setText("Kết quả là...");
-```
-
-Nên viết:
-
-```java
-txtResult.setText(getString(R.string.result_text));
-```
-
-Hoặc nếu có tham số:
-
-```java
-txtResult.setText(getString(R.string.result_value, x));
-```
-
-Trong `strings.xml`:
-
-```xml
-<string name="result_value">Kết quả: %1$s</string>
-```
-
-Cách này giúp nội dung hiển thị phù hợp với Language, Location, Theme của người dùng.
-
----
-
-## 3.13. Event trong Android
-
-Event là sự kiện người dùng tác động vào app, ví dụ:
-
-* Click Button.
-* Click TextView.
-* Nhập dữ liệu vào EditText.
-* Chạm màn hình.
-* Cuộn danh sách.
-
-Khi có sự kiện, app sẽ chạy đoạn code tương ứng.
-
----
-
-## 3.14. Layout cần làm gì để xử lý sự kiện?
-
-Có 2 cách phổ biến.
-
-### Cách 1: Khai báo onClick trong XML
-
-Trong layout:
-
-```xml
-<Button
-    android:id="@+id/btnSolve"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/solve"
-    android:onClick="solveEquation" />
-```
-
-Trong Java:
-
-```java
-public void solveEquation(View view) {
-    // Code xử lý khi click
-}
-```
-
-### Cách 2: Dùng setOnClickListener trong Java
-
-Trong Java:
-
-```java
-Button btnSolve = findViewById(R.id.btnSolve);
-
-btnSolve.setOnClickListener(v -> {
-    // Code xử lý khi click
-});
-```
-
-Cách 2 thường được dùng nhiều hơn vì dễ quản lý code và rõ ràng hơn.
-
----
-
-# PHẦN 4. APP2 ANDROID STUDIO - APP TƯƠNG ĐƯƠNG MIT APP INVENTOR
-
-## 4.1. Yêu cầu
-
-Tạo app Android Studio gồm 3 Activity:
-
-* `MainActivity`: About và nút chuyển sang 2 Activity còn lại.
-* `SolveActivity`: Giải bài toán đơn giản. Sau khi giải xong, gọi API `https://k58kmt.tdh.io.vn/api` để gửi dữ liệu.
-* `WebActivity`: Dùng WebView truy cập:
-
-```text
-https://k58kmt.tdh.io.vn?masv=K225480106058
-```
-
----
-
-## 4.2. Cấu trúc project
-
-```text
-MobileBTL/
-│
-├── app/
-│   ├── src/main/
-│   │   ├── java/com/example/mobilebtl/
-│   │   │   ├── MainActivity.java
-│   │   │   ├── SolveActivity.java
-│   │   │   └── WebActivity.java
-│   │   │
-│   │   ├── res/layout/
-│   │   │   ├── activity_main.xml
-│   │   │   ├── activity_solve.xml
-│   │   │   └── activity_web.xml
-│   │   │
-│   │   ├── res/values/
-│   │   │   ├── strings.xml
-│   │   │   └── colors.xml
-│   │   │
-│   │   └── AndroidManifest.xml
-```
-
----
-
-## 4.3. AndroidManifest.xml
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <application
-        android:allowBackup="true"
-        android:theme="@style/Theme.MobileBTL"
-        android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
-        android:supportsRtl="true">
-
-        <activity android:name=".WebActivity" />
-        <activity android:name=".SolveActivity" />
-
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
-
-    </application>
-
-</manifest>
-```
-
----
-
-## 4.4. strings.xml
-
-File:
-
-```text
-res/values/strings.xml
-```
-
-```xml
-<resources>
-    <string name="app_name">Mobile BTL</string>
-
-    <string name="student_name">Nguyễn Tiến Thắng</string>
-    <string name="student_id">K225480106058</string>
-    <string name="student_class">K58 KTP</string>
-    <string name="subject_name">Phát triển ứng dụng trên thiết bị di động</string>
-
-    <string name="about_title">Thông tin sinh viên</string>
-    <string name="btn_open_solve">Mở màn hình giải toán</string>
-    <string name="btn_open_web">Mở WebView</string>
-
-    <string name="solve_title">Giải phương trình bậc nhất ax + b = 0</string>
-    <string name="input_a">Nhập hệ số a</string>
-    <string name="input_b">Nhập hệ số b</string>
-    <string name="btn_solve">Giải bài toán</string>
-    <string name="btn_back">Quay lại</string>
-    <string name="result_default">Kết quả sẽ hiển thị tại đây</string>
-    <string name="invalid_input">Vui lòng nhập đúng hệ số a và b</string>
-    <string name="infinite_solution">Phương trình có vô số nghiệm</string>
-    <string name="no_solution">Phương trình vô nghiệm</string>
-    <string name="one_solution">Phương trình có nghiệm x = %1$.2f</string>
-    <string name="api_success">Gửi API thành công. STT: %1$s</string>
-    <string name="api_error">Lỗi gửi API: %1$s</string>
-
-    <string name="web_title">WebView</string>
-</resources>
-```
-
----
-
-## 4.5. activity_main.xml
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="24dp">
-
-    <TextView
-        android:id="@+id/txtAboutTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/about_title"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:paddingBottom="20dp" />
-
-    <TextView
-        android:id="@+id/txtInfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="17sp"
-        android:gravity="center"
-        android:paddingBottom="30dp" />
-
-    <Button
-        android:id="@+id/btnOpenSolve"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_open_solve" />
-
-    <Button
-        android:id="@+id/btnOpenWeb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_open_web"
-        android:layout_marginTop="12dp" />
-
-</LinearLayout>
-```
-
----
-
-## 4.6. MainActivity.java
-
-```java
-package com.example.mobilebtl;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-public class MainActivity extends AppCompatActivity {
-
-    TextView txtInfo;
-    Button btnOpenSolve, btnOpenWeb;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        txtInfo = findViewById(R.id.txtInfo);
-        btnOpenSolve = findViewById(R.id.btnOpenSolve);
-        btnOpenWeb = findViewById(R.id.btnOpenWeb);
-
-        String info =
-                getString(R.string.student_name) + "\n" +
-                getString(R.string.student_id) + "\n" +
-                getString(R.string.student_class) + "\n" +
-                getString(R.string.subject_name);
-
-        txtInfo.setText(info);
-
-        btnOpenSolve.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, SolveActivity.class);
-            startActivity(intent);
-        });
-
-        btnOpenWeb.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, WebActivity.class);
-            startActivity(intent);
-        });
-    }
-}
-```
-
----
-
-## 4.7. activity_solve.xml
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="24dp">
-
-        <TextView
-            android:id="@+id/txtSolveTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/solve_title"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:paddingBottom="20dp" />
-
-        <EditText
-            android:id="@+id/edtA"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/input_a"
-            android:inputType="numberDecimal|numberSigned" />
-
-        <EditText
-            android:id="@+id/edtB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/input_b"
-            android:inputType="numberDecimal|numberSigned"
-            android:layout_marginTop="10dp" />
-
-        <Button
-            android:id="@+id/btnSolve"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_solve"
-            android:layout_marginTop="20dp" />
-
-        <TextView
-            android:id="@+id/txtResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/result_default"
-            android:textSize="18sp"
-            android:paddingTop="20dp" />
-
-        <TextView
-            android:id="@+id/txtApiResult"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:paddingTop="12dp" />
-
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_back"
-            android:layout_marginTop="20dp" />
-
-    </LinearLayout>
-</ScrollView>
-```
-
----
-
-## 4.8. SolveActivity.java
-
-```java
-package com.example.mobilebtl;
-
-import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import org.json.JSONObject;
-
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
-
-public class SolveActivity extends AppCompatActivity {
-
-    EditText edtA, edtB;
-    Button btnSolve, btnBack;
-    TextView txtResult, txtApiResult;
-
-    private final String MASV = "K225480106058";
-    private final String API_URL = "https://k58kmt.tdh.io.vn/api";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_solve);
-
-        edtA = findViewById(R.id.edtA);
-        edtB = findViewById(R.id.edtB);
-        btnSolve = findViewById(R.id.btnSolve);
-        btnBack = findViewById(R.id.btnBack);
-        txtResult = findViewById(R.id.txtResult);
-        txtApiResult = findViewById(R.id.txtApiResult);
-
-        btnSolve.setOnClickListener(v -> solveEquation());
-
-        btnBack.setOnClickListener(v -> finish());
-    }
-
-    private void solveEquation() {
-        try {
-            double a = Double.parseDouble(edtA.getText().toString().trim());
-            double b = Double.parseDouble(edtB.getText().toString().trim());
-
-            String ketLuan;
-            Double nghiem = null;
-
-            if (a == 0 && b == 0) {
-                ketLuan = getString(R.string.infinite_solution);
-            } else if (a == 0) {
-                ketLuan = getString(R.string.no_solution);
-            } else {
-                nghiem = -b / a;
-                ketLuan = getString(R.string.one_solution, nghiem);
-            }
-
-            txtResult.setText(ketLuan);
-
-            sendResultToApi(a, b, ketLuan, nghiem);
-
-        } catch (Exception e) {
-            txtResult.setText(getString(R.string.invalid_input));
-        }
-    }
-
-    private void sendResultToApi(double a, double b, String ketLuan, Double nghiem) {
-        new Thread(() -> {
-            try {
-                JSONObject input = new JSONObject();
-                input.put("a", a);
-                input.put("b", b);
-                input.put("c", 0);
-                input.put("name", "Nguyen Tien Thang");
-
-                JSONObject output = new JSONObject();
-                output.put("ketluan", ketLuan);
-                output.put("abc", "Giai phuong trinh bac nhat ax + b = 0");
-
-                if (nghiem == null) {
-                    output.put("nghiem", JSONObject.NULL);
-                } else {
-                    output.put("nghiem", nghiem);
-                }
-
-                JSONObject body = new JSONObject();
-                body.put("app_by", MASV);
-                body.put("input", input);
-                body.put("output", output);
-
-                URL url = new URL(API_URL);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-                conn.setRequestMethod("POST");
-                conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-                conn.setDoOutput(true);
-
-                OutputStream os = conn.getOutputStream();
-                os.write(body.toString().getBytes(StandardCharsets.UTF_8));
-                os.close();
-
-                int responseCode = conn.getResponseCode();
-
-                if (responseCode == HttpURLConnection.HTTP_OK
-                        || responseCode == HttpURLConnection.HTTP_CREATED) {
-
-                    java.io.InputStream is = conn.getInputStream();
-                    java.util.Scanner scanner = new java.util.Scanner(is).useDelimiter("\\A");
-                    String response = scanner.hasNext() ? scanner.next() : "";
-
-                    JSONObject responseJson = new JSONObject(response);
-                    String stt = responseJson.optString("stt", "Không có STT");
-
-                    runOnUiThread(() -> {
-                        txtApiResult.setText(getString(R.string.api_success, stt));
-                    });
-
-                } else {
-                    runOnUiThread(() -> {
-                        txtApiResult.setText(getString(R.string.api_error, "HTTP " + responseCode));
-                    });
-                }
-
-                conn.disconnect();
-
-            } catch (Exception e) {
-                runOnUiThread(() -> {
-                    txtApiResult.setText(getString(R.string.api_error, e.getMessage()));
-                });
-            }
-        }).start();
-    }
-}
-```
-
----
-
-## 4.9. activity_web.xml
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <Button
-        android:id="@+id/btnBackWeb"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_back" />
-
-    <WebView
-        android:id="@+id/webView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-</LinearLayout>
-```
-
----
-
-## 4.10. WebActivity.java
-
-```java
-package com.example.mobilebtl;
-
-import android.os.Bundle;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.Button;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-public class WebActivity extends AppCompatActivity {
-
-    WebView webView;
-    Button btnBackWeb;
-
-    private final String WEB_URL = "https://k58kmt.tdh.io.vn?masv=K225480106058";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
-
-        webView = findViewById(R.id.webView);
-        btnBackWeb = findViewById(R.id.btnBackWeb);
-
-        btnBackWeb.setOnClickListener(v -> finish());
-
-        webView.setWebViewClient(new WebViewClient());
-
-        WebSettings settings = webView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setDomStorageEnabled(true);
-        settings.setLoadWithOverviewMode(true);
-        settings.setUseWideViewPort(true);
-
-        webView.loadUrl(WEB_URL);
-    }
-}
-```
-
----
-
-# PHẦN 5. GIẢI THÍCH CODE APP2
-
-## 5.1. MainActivity
-
-`MainActivity` là màn hình About. Màn hình này hiển thị thông tin sinh viên và có 2 nút:
+MainActivity hiển thị thông tin cá nhân và có 2 nút:
 
 * Nút mở màn hình giải toán.
 * Nút mở màn hình WebView.
 
-Sử dụng `Intent` để chuyển Activity:
+Code chuyển Activity:
 
 ```java
-Intent intent = new Intent(MainActivity.this, SolveActivity.class);
-startActivity(intent);
+btnOpenSolve.setOnClickListener(v -> {
+    Intent intent = new Intent(MainActivity.this, SolveActivity.class);
+    startActivity(intent);
+});
+
+btnOpenWeb.setOnClickListener(v -> {
+    Intent intent = new Intent(MainActivity.this, WebActivity.class);
+    startActivity(intent);
+});
 ```
 
 ---
 
-## 5.2. SolveActivity
+## 17. SolveActivity - Giải toán và gửi API
 
-`SolveActivity` cho phép người dùng nhập hệ số `a`, `b` để giải phương trình:
+SolveActivity thực hiện giải phương trình:
 
 ```text
 ax + b = 0
 ```
 
-Sau khi giải, app gửi dữ liệu lên API với cấu trúc JSON:
+Các trường hợp xử lý:
+
+| Input           | Output                       |
+| --------------- | ---------------------------- |
+| a hoặc b rỗng   | Vui lòng nhập đủ dữ liệu     |
+| a = 0, b = 0    | Phương trình có vô số nghiệm |
+| a = 0, b khác 0 | Phương trình vô nghiệm       |
+| a khác 0        | Nghiệm x = -b/a              |
+
+Sau khi giải xong, app gửi dữ liệu bằng phương thức POST tới API:
+
+```text
+https://k58kmt.tdh.io.vn/api
+```
+
+JSON gửi đi:
 
 ```json
 {
   "app_by": "K225480106058",
   "input": {
-    "a": 1,
-    "b": 2,
-    "c": 0,
-    "name": "Nguyen Tien Thang"
+    "a": 2,
+    "b": 1,
+    "c": 3,
+    "name": "hello tắc kè"
   },
   "output": {
-    "ketluan": "Phương trình có nghiệm x = -2.00",
-    "abc": "Giai phuong trinh bac nhat ax + b = 0",
-    "nghiem": -2.0
+    "ketluan": "Nghiệm x = -0.50",
+    "abc": "xyz",
+    "nghiem": -0.5
   }
 }
 ```
 
-Khi server trả về:
+Kết quả API trả về:
 
 ```json
 {
@@ -1380,19 +504,108 @@ Khi server trả về:
 }
 ```
 
-App hiển thị STT lên giao diện.
+---
+
+## 18. WebActivity - WebView
+
+WebActivity sử dụng WebView để truy cập trang web bằng phương thức GET:
+
+```text
+https://k58kmt.tdh.io.vn/?masv=K225480106058
+```
+
+Đoạn code chính:
+
+```java
+private static final String WEB_URL = "https://k58kmt.tdh.io.vn/?masv=K225480106058";
+
+webView.setWebViewClient(new WebViewClient());
+
+WebSettings settings = webView.getSettings();
+settings.setJavaScriptEnabled(true);
+settings.setDomStorageEnabled(true);
+
+webView.loadUrl(WEB_URL);
+```
 
 ---
 
-## 5.3. WebActivity
+## 19. Build APK và chạy thử
 
-`WebActivity` dùng WebView để mở trang:
+Sau khi hoàn thành code, thực hiện build APK:
 
 ```text
-https://k58kmt.tdh.io.vn?masv=K225480106058
+Build → Generate App Bundles or APKs → Generate APK
 ```
 
-Cần khai báo quyền Internet trong Manifest:
+File APK được tạo tại:
+
+```text
+app/build/outputs/apk/debug/app-debug.apk
+```
+
+Cài app vào BlueStacks bằng cách kéo file APK vào cửa sổ BlueStacks.
+
+---
+
+## 20. Kiểm thử App2
+
+Các trường hợp kiểm thử:
+
+### Test giải phương trình
+
+| a    | b    | Kết quả                      |
+| ---- | ---- | ---------------------------- |
+| 2    | 1    | Nghiệm x = -0.50             |
+| 0    | 0    | Phương trình có vô số nghiệm |
+| 0    | 5    | Phương trình vô nghiệm       |
+| rỗng | rỗng | Vui lòng nhập đủ dữ liệu     |
+
+### Test API
+
+Sau khi bấm nút giải, app gửi dữ liệu lên:
+
+```text
+https://k58kmt.tdh.io.vn/api
+```
+
+Nếu thành công, app hiển thị:
+
+```text
+Gửi API thành công. STT: ...
+```
+
+### Test WebView
+
+Mở Activity WebView, app truy cập:
+
+```text
+https://k58kmt.tdh.io.vn/?masv=K225480106058
+```
+
+### Kiểm tra log
+
+Vào trang:
+
+```text
+https://k58kmt.tdh.io.vn/
+```
+
+Tìm theo MSSV:
+
+```text
+K225480106058
+```
+
+---
+
+# PHẦN 3: TRẢ LỜI CÂU HỎI THEO YÊU CẦU
+
+## 21. AndroidManifest.xml mô tả gì?
+
+AndroidManifest.xml là file cấu hình quan trọng của ứng dụng Android. File này mô tả thông tin tổng quan của app như tên app, icon, theme, danh sách Activity, quyền truy cập và Activity khởi chạy đầu tiên.
+
+Ví dụ trong bài, app cần Internet để gọi API và mở WebView nên phải khai báo:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -1400,193 +613,399 @@ Cần khai báo quyền Internet trong Manifest:
 
 ---
 
-# PHẦN 6. MÔ TẢ QUÁ TRÌNH LÀM BÀI
+## 22. App cần quyền để làm gì? Khai báo như thế nào?
 
-## 6.1. Quá trình làm MIT App Inventor
+App cần quyền Internet để:
 
-### Bước 1
+* Gửi JSON bằng POST tới API.
+* Mở trang web bằng WebView.
+* Truy cập địa chỉ `https://k58kmt.tdh.io.vn`.
 
-Truy cập MIT App Inventor và tạo project mới.
+Khai báo quyền trong AndroidManifest.xml:
 
-Tên project:
-
-```text
-MIT_GiaiToan_WebView_K225480106058
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
 ```
 
-### Bước 2
-
-Tạo 3 Screen:
-
-* Screen1: About.
-* Screen2: GiaiToan.
-* Screen3: WebView.
-
-### Bước 3
-
-Thiết kế Screen1 bằng các thành phần Label, Button, VerticalArrangement.
-
-### Bước 4
-
-Thiết kế Screen2 bằng TextBox, Button, Label để nhập hệ số và hiển thị kết quả.
-
-### Bước 5
-
-Thiết kế Screen3 bằng WebViewer để hiển thị trang web.
-
-### Bước 6
-
-Kéo thả block xử lý sự kiện click Button:
-
-* Button mở Screen2.
-* Button mở Screen3.
-* Button giải toán.
-* Button quay lại.
-
-### Bước 7
-
-Chạy thử app bằng AI Companion hoặc build APK.
+Dòng này đặt bên trong thẻ `<manifest>` nhưng nằm ngoài thẻ `<application>`.
 
 ---
 
-## 6.2. Quá trình làm Android Studio APP1
+## 23. Vòng đời của một Activity Android là gì?
 
-### Bước 1
+Vòng đời Activity gồm các hàm chính:
 
-Tạo project Android Studio bằng Java.
+| Hàm         | Ý nghĩa                     |
+| ----------- | --------------------------- |
+| onCreate()  | Activity được tạo           |
+| onStart()   | Activity bắt đầu hiển thị   |
+| onResume()  | Activity sẵn sàng tương tác |
+| onPause()   | Activity bị che một phần    |
+| onStop()    | Activity không còn hiển thị |
+| onDestroy() | Activity bị hủy             |
 
-Tên project:
-
-```text
-HuongDanHocAndroid
-```
-
-### Bước 2
-
-Tạo file dữ liệu trong Assets:
-
-```text
-app/src/main/assets/lessons.json
-```
-
-### Bước 3
-
-Thiết kế layout gồm ScrollView và TextView.
-
-### Bước 4
-
-Viết code đọc file JSON từ Assets.
-
-### Bước 5
-
-Hiển thị danh sách bài học lên giao diện.
-
-### Bước 6
-
-Chạy thử khi tắt mạng để chứng minh app dùng được offline.
+Trong bài, hàm quan trọng nhất là `onCreate()` vì dùng để gắn layout và khởi tạo các component.
 
 ---
 
-## 6.3. Quá trình làm Android Studio APP2
+## 24. Vì sao project có sẵn hàm onCreate?
 
-### Bước 1
+Khi tạo Activity, Android Studio tự sinh hàm `onCreate()` vì đây là điểm bắt đầu của Activity. Trong hàm này, lập trình viên thường gọi:
 
-Tạo project Android Studio bằng Java.
-
-Tên project:
-
-```text
-MobileBTL
+```java
+setContentView(R.layout.activity_main);
 ```
 
-### Bước 2
-
-Tạo 3 Activity:
-
-* MainActivity.
-* SolveActivity.
-* WebActivity.
-
-### Bước 3
-
-Khai báo Activity và quyền Internet trong AndroidManifest.xml.
-
-### Bước 4
-
-Thiết kế giao diện XML cho từng Activity.
-
-### Bước 5
-
-Viết code Java xử lý chuyển màn hình, giải toán, gọi API và mở WebView.
-
-### Bước 6
-
-Chạy thử app trên máy ảo hoặc điện thoại thật.
-
-### Bước 7
-
-Chụp ảnh minh hoạ quá trình làm bài và kết quả.
+Dòng này dùng để liên kết Activity Java với file giao diện XML.
 
 ---
 
-# PHẦN 7. ẢNH MINH HOẠ CẦN ĐƯA VÀO GITHUB VÀ BÁO CÁO
+## 25. Code Java kiểm tra quyền như thế nào?
 
-Sinh viên cần chụp và đưa vào thư mục `images/` các ảnh sau:
+Với quyền Internet, Android chỉ cần khai báo trong Manifest, không cần hỏi quyền lúc chạy.
 
-```text
-images/
-├── mit_screen1_about.png
-├── mit_screen2_solve.png
-├── mit_screen3_webview.png
-├── mit_blocks_screen1.png
-├── mit_blocks_screen2.png
-├── android_project_structure.png
-├── android_manifest.png
-├── android_main_activity.png
-├── android_solve_activity.png
-├── android_web_activity.png
-├── android_app_about_result.png
-├── android_app_solve_result.png
-├── android_api_result.png
-└── android_webview_result.png
+Với các quyền nguy hiểm như Camera, Location, Storage thì cần kiểm tra bằng code:
+
+```java
+if (checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+    requestPermissions(new String[]{Manifest.permission.CAMERA}, 100);
+}
 ```
 
-Trong README.md có thể chèn ảnh như sau:
+Ý nghĩa:
 
-```md
-![MIT Screen About](images/mit_screen1_about.png)
-![Android Solve Result](images/android_app_solve_result.png)
+* Kiểm tra app đã có quyền chưa.
+* Nếu chưa có thì yêu cầu người dùng cấp quyền.
+* Giúp app tránh bị lỗi khi truy cập tài nguyên nhạy cảm.
+
+---
+
+## 26. res/layout là gì?
+
+`res/layout` là thư mục chứa các file XML mô tả giao diện của ứng dụng.
+
+Ví dụ trong bài:
+
+```text
+activity_main.xml
+activity_solve.xml
+activity_web.xml
+```
+
+Mỗi file XML mô tả bố cục và component của một màn hình.
+
+---
+
+## 27. Hardcode là gì? Vì sao nên tránh?
+
+Hardcode là viết trực tiếp chuỗi vào XML hoặc Java.
+
+Ví dụ hardcode:
+
+```xml
+android:text="Giải bài toán"
+```
+
+Cách đúng là đưa chuỗi vào `strings.xml`:
+
+```xml
+<string name="btn_solve">Giải bài toán</string>
+```
+
+Sau đó tham chiếu:
+
+```xml
+android:text="@string/btn_solve"
+```
+
+Ưu điểm:
+
+* Dễ sửa nội dung.
+* Dễ dịch đa ngôn ngữ.
+* Dễ bảo trì.
+* Android có thể tự chọn tài nguyên theo ngôn ngữ, theme, khu vực.
+
+---
+
+## 28. Cú pháp tham chiếu tài nguyên là gì?
+
+Cú pháp tham chiếu tài nguyên trong XML:
+
+```xml
+@string/tên_chuỗi
+@color/tên_màu
+@drawable/tên_hình
+@layout/tên_layout
+```
+
+Ví dụ:
+
+```xml
+android:text="@string/app_name"
+android:background="@color/purple_500"
+```
+
+Trong Java dùng:
+
+```java
+getString(R.string.app_name)
 ```
 
 ---
 
-# PHẦN 8. KẾT LUẬN
+## 29. OS hỗ trợ tự lấy tài nguyên theo Location, Language, Theme như thế nào?
 
-Qua bài tập lớn này, sinh viên đã thực hiện được hai cách phát triển ứng dụng Android.
+Android cho phép tạo nhiều thư mục tài nguyên khác nhau:
 
-Với MIT App Inventor, sinh viên hiểu được cách tạo app bằng kéo thả giao diện và kéo thả block. Cách này đơn giản, trực quan, phù hợp với người mới học, nhưng hạn chế khi xây dựng ứng dụng lớn.
+```text
+values/strings.xml
+values-en/strings.xml
+values-vi/strings.xml
+values-night/colors.xml
+```
 
-Với Android Studio, sinh viên hiểu được cấu trúc một project Android thật, biết cách sử dụng AndroidManifest.xml, Activity, vòng đời Activity, layout XML, tài nguyên trong thư mục res, dữ liệu trong Assets, xử lý sự kiện, gọi API và sử dụng WebView.
+Khi người dùng đổi ngôn ngữ hoặc theme, Android tự động chọn tài nguyên phù hợp.
 
-Ứng dụng hoàn thành đáp ứng đầy đủ yêu cầu của đề bài:
+Ví dụ:
 
-* Có app MIT App Inventor gồm 3 Screen.
-* Có app Android Studio sử dụng dữ liệu chuẩn bị trước trong Assets.
-* Có app Android Studio tương đương MIT App Inventor gồm 3 Activity.
-* Có giải toán đơn giản.
-* Có gửi dữ liệu lên API.
-* Có WebView truy cập đúng URL kèm mã sinh viên.
-* Có mô tả quá trình làm bài để upload GitHub và in báo cáo.
+* Máy dùng tiếng Việt → lấy chuỗi trong `values-vi`.
+* Máy dùng tiếng Anh → lấy chuỗi trong `values-en`.
+* Máy bật dark mode → lấy màu trong `values-night`.
+
+Điều này giúp app dễ hỗ trợ đa ngôn ngữ và giao diện sáng/tối.
 
 ---
 
-# PHẦN 9. LINK THAM KHẢO CẦN GHI TRONG BÁO CÁO
+## 30. Đối tượng chứa trong layout là gì?
 
-* MIT App Inventor: https://appinventor.mit.edu/
-* Android Studio: https://developer.android.com/studio
-* Android Manifest: https://developer.android.com/guide/topics/manifest/manifest-intro
-* Android Activity Lifecycle: https://developer.android.com/guide/components/activities/activity-lifecycle
-* Android WebView: https://developer.android.com/develop/ui/views/layout/webapps/webview
+Đối tượng chứa là component dùng để gom các component con lại và sắp xếp theo một quy luật.
 
+Ví dụ:
+
+* LinearLayout: sắp xếp con theo chiều ngang hoặc dọc.
+* ScrollView: cho phép cuộn khi nội dung dài.
+* ConstraintLayout: sắp xếp theo ràng buộc.
+
+Trong bài, sử dụng LinearLayout:
+
+```xml
+<LinearLayout
+    android:orientation="vertical">
+</LinearLayout>
 ```
+
+Ý nghĩa: các component con được xếp theo chiều dọc.
+
+Nếu muốn xếp ngang:
+
+```xml
+android:orientation="horizontal"
 ```
+
+---
+
+## 31. Gravity là gì?
+
+`gravity` dùng để căn nội dung bên trong View hoặc Layout.
+
+Ví dụ:
+
+```xml
+android:gravity="center"
+```
+
+Ý nghĩa: căn giữa nội dung.
+
+Các giá trị thường dùng:
+
+```text
+center
+left
+right
+top
+bottom
+center_horizontal
+center_vertical
+```
+
+---
+
+## 32. Code tương tác với layout như thế nào?
+
+Để code Java tương tác với giao diện, cần gán `id` cho component trong XML.
+
+Ví dụ XML:
+
+```xml
+<TextView
+    android:id="@+id/txtResult" />
+```
+
+Trong Java:
+
+```java
+TextView txtResult = findViewById(R.id.txtResult);
+txtResult.setText("Kết quả");
+```
+
+Nếu muốn tránh hardcode:
+
+```java
+txtResult.setText(getString(R.string.result_default));
+```
+
+---
+
+## 33. Event click là gì?
+
+Event click là sự kiện xảy ra khi người dùng bấm vào một component như Button hoặc TextView.
+
+Trong Java có thể viết theo 2 cách.
+
+### Cách 1: Dùng Lambda
+
+```java
+btnSolve.setOnClickListener(v -> {
+    solveEquation();
+});
+```
+
+### Cách 2: Dùng View.OnClickListener
+
+```java
+btnSolve.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        solveEquation();
+    }
+});
+```
+
+Muốn xử lý sự kiện, layout cần có component có `id`, sau đó Java lấy component bằng `findViewById()` và gắn sự kiện `setOnClickListener()`.
+
+---
+
+## 34. Assets là gì?
+
+Assets là thư mục chứa file dữ liệu đi kèm ứng dụng. Các file này được đóng gói vào app khi build.
+
+Ví dụ có thể lưu:
+
+```text
+assets/huongdan.txt
+assets/data.json
+assets/index.html
+assets/images/logo.png
+```
+
+---
+
+## 35. Copy file vào Assets bằng Windows Explorer thì điều gì xảy ra?
+
+Khi copy file vào thư mục `assets`, các file này sẽ đi theo app sau khi compiler/build. Người dùng cài app sẽ có sẵn các file đó trong ứng dụng.
+
+App có thể truy cập file trong assets bằng cú pháp Java:
+
+```java
+InputStream is = getAssets().open("huongdan.txt");
+```
+
+---
+
+## 36. Lợi ích của Assets là gì?
+
+Assets giúp app có sẵn dữ liệu offline.
+
+Lợi ích:
+
+* Không cần Internet vẫn dùng được.
+* Dữ liệu được đóng gói cùng app.
+* Phù hợp với app học tập, app hướng dẫn, app tra cứu.
+* Tốc độ đọc dữ liệu nhanh.
+* Giảm phụ thuộc vào server.
+
+---
+
+## 37. Ứng dụng dữ liệu Assets trong bài
+
+Trong bài có thể đặt vấn đề:
+
+```text
+Xây dựng app hướng dẫn giải phương trình bậc nhất ax + b = 0.
+```
+
+Dữ liệu chuẩn bị trước:
+
+```text
+Công thức, lý thuyết, ví dụ mẫu, các trường hợp đặc biệt.
+```
+
+Dữ liệu có thể lưu dưới dạng:
+
+```text
+TXT hoặc JSON
+```
+
+Đối tượng hiển thị:
+
+```text
+TextView, WebView hoặc ListView
+```
+
+Nếu dữ liệu là JSON, app có thể đọc JSON rồi parse thành danh sách để hiển thị. Nếu dữ liệu là TXT, app có thể đọc trực tiếp và hiển thị bằng TextView.
+
+---
+
+## 38. MIT App Inventor và Android Studio khác nhau như thế nào?
+
+| Tiêu chí         | MIT App Inventor | Android Studio               |
+| ---------------- | ---------------- | ---------------------------- |
+| Cách lập trình   | Kéo thả block    | Viết code Java/Kotlin        |
+| Độ khó           | Dễ hơn           | Khó hơn                      |
+| Tốc độ tạo app   | Nhanh            | Chậm hơn                     |
+| Khả năng mở rộng | Hạn chế          | Mạnh hơn                     |
+| Quản lý code     | Khó khi app lớn  | Tốt hơn                      |
+| Phù hợp          | Người mới học    | Lập trình Android chuyên sâu |
+
+---
+
+# 39. Kết luận
+
+Qua bài tập lớn, em đã thực hiện được hai ứng dụng di động bằng MIT App Inventor và Android Studio.
+
+Với MIT App Inventor, em hiểu được cách tạo app bằng kéo thả component, thay đổi thuộc tính và xử lý logic bằng Blocks. Công cụ này phù hợp với người mới bắt đầu vì dễ sử dụng, trực quan và không cần viết nhiều code.
+
+Với Android Studio, em hiểu được cấu trúc project Android, cách thiết kế giao diện bằng XML, cách xử lý sự kiện bằng Java, cách khai báo quyền trong AndroidManifest, cách sử dụng WebView và cách gọi API bằng phương thức POST. Đây là môi trường mạnh hơn, phù hợp để phát triển ứng dụng chuyên nghiệp.
+
+Bài tập giúp em nắm được quy trình phát triển ứng dụng di động từ mức cơ bản đến nâng cao, đồng thời hiểu rõ hơn sự khác nhau giữa công cụ kéo thả và lập trình Android gốc.
+
+---
+
+# 40. Link GitHub
+
+Link GitHub nộp bài:
+
+```text
+Dán link repository GitHub tại đây
+```
+
+---
+
+# 41. Hình ảnh minh họa cần chèn vào báo cáo
+
+Các ảnh nên chèn vào file Word hoặc README:
+
+1. Ảnh giao diện Screen1 MIT App Inventor.
+2. Ảnh giao diện Screen2 MIT App Inventor.
+3. Ảnh block xử lý giải toán.
+4. Ảnh Screen3 WebViewer.
+5. Ảnh project Android Studio.
+6. Ảnh AndroidManifest.xml.
+7. Ảnh activity_main.xml.
+8. Ảnh SolveActivity.java.
+9. Ảnh app chạy trên BlueStacks.
+10. Ảnh gửi API thành công.
+11. Ảnh WebView mở đúng link.
+12. Ảnh log trên trang `https://k58kmt.tdh.io.vn/`.
+
+---
