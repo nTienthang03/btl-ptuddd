@@ -1015,31 +1015,4 @@ Bài tập giúp em nắm được quy trình phát triển ứng dụng di đ�
 
 ---
 
-# 40. Link GitHub
 
-Link GitHub nộp bài:
-
-```text
-Dán link repository GitHub tại đây
-```
-
----
-
-# 41. Hình ảnh minh họa cần chèn vào báo cáo
-
-Các ảnh nên chèn vào file Word hoặc README:
-
-1. Ảnh giao diện Screen1 MIT App Inventor.
-2. Ảnh giao diện Screen2 MIT App Inventor.
-3. Ảnh block xử lý giải toán.
-4. Ảnh Screen3 WebViewer.
-5. Ảnh project Android Studio.
-6. Ảnh AndroidManifest.xml.
-7. Ảnh activity_main.xml.
-8. Ảnh SolveActivity.java.
-9. Ảnh app chạy trên BlueStacks.
-10. Ảnh gửi API thành công.
-11. Ảnh WebView mở đúng link.
-12. Ảnh log trên trang `https://k58kmt.tdh.io.vn/`.
-
----
