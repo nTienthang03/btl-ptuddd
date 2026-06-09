@@ -30,8 +30,10 @@ Mục tiêu của bài tập là giúp sinh viên hiểu quy trình tạo ứng 
 * **Screen1:** About - hiển thị thông tin cá nhân và có nút chuyển sang 2 màn hình còn lại.
 * **Screen2:** Giải bài toán đơn giản - giải phương trình bậc nhất dạng `ax + b = 0`.
 * **Screen3:** WebView - hiển thị một trang web có sẵn, hỗ trợ giao diện điện thoại.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3832ddfa-e4be-4407-9a46-532a84ec2581" />
 
 ---
+
 
 ## 3. Quy trình tạo ứng dụng trên MIT App Inventor
 
@@ -56,6 +58,8 @@ MIT_GiaiToan_WebView_K225480106058
 ```
 
 ---
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/970cf6f8-16a8-49b4-89bd-49d1e5031044" />
+
 
 ### Bước 2: Tạo 3 Screen
 
@@ -113,6 +117,8 @@ do open another screen screenName "Screen3"
 ```
 
 ---
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e308d662-745a-4087-bf9f-fc6c7612ac04" />
+
 
 ## 5. Thiết kế Screen2 - Giải toán
 
@@ -153,6 +159,8 @@ NumbersOnly: bật
 Không được nhập chữ gợi ý vào thuộc tính `Text`, vì khi đó app sẽ hiểu đó là dữ liệu thật.
 
 ---
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f0161585-ef12-40ee-bf0a-73b297c68dda" />
+
 
 ## 6. Logic giải phương trình trong MIT App Inventor
 
@@ -179,6 +187,8 @@ do
     else
         set KetQua.Text to join "Nghiệm x = " ((0 - NhapB.Text) / NhapA.Text)
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3094e98e-2029-4395-af09-dd22d2efc5d4" />
+
 
 Công thức nghiệm:
 
@@ -218,6 +228,8 @@ when Screen3.Initialize
 do call WebHienThi.GoToUrl
 url "https://k58kmt.tdh.io.vn/?masv=K225480106058"
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/81a2f81d-bca5-4ddd-8ca2-b99113896187" />
+
 
 Nút quay lại:
 
@@ -227,6 +239,8 @@ do close screen
 ```
 
 ---
+
+
 
 ## 8. Mô tả thanh công cụ MIT App Inventor
 
@@ -253,6 +267,7 @@ Ví dụ:
 ```text
 when Button.Click
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b2c747bf-01db-4fcd-9d1b-84bc60b6afa5" />
 
 có ý nghĩa tương tự một sự kiện click trong lập trình truyền thống.
 
@@ -332,6 +347,17 @@ Lợi ích của dữ liệu offline:
 * Phù hợp với app học tập, app hướng dẫn, app tra cứu.
 
 ---
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5e1eaa51-28a9-4597-9591-ad799ee3be01" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f2d7f2f9-7cd6-499d-93b0-779a7c974d97" />
+
+## Kết quả 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a2a85e06-a303-4f4e-9bdb-c05c56971ce4" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d6b02ccf-3caf-43da-a8a6-da5d364e01ac" />
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/42ffdd52-b5de-4d3e-a843-fa2a5a2f3d58" />
+
 
 # PHẦN 2: ỨNG DỤNG ANDROID STUDIO
 
@@ -385,6 +411,7 @@ API 24 hoặc cao hơn
 8. Chọn Finish để tạo project.
 
 ---
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/10f77404-3b5e-4e2a-8dcc-07c1b677eff7" />
 
 ## 14. Cấu trúc project Android Studio
 
@@ -403,6 +430,7 @@ Các thư mục quan trọng:
 
 ---
 
+
 ## 15. Các file chính của App2
 
 ### File Java
@@ -412,6 +440,7 @@ MainActivity.java
 SolveActivity.java
 WebActivity.java
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d5d59cba-cfea-4bc0-af37-73c142a57117" />
 
 ### File layout XML
 
@@ -420,6 +449,8 @@ activity_main.xml
 activity_solve.xml
 activity_web.xml
 ```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a0088438-6a17-499b-a95e-839e122048f2" />
+
 
 ### File cấu hình và tài nguyên
 
@@ -452,6 +483,8 @@ btnOpenWeb.setOnClickListener(v -> {
 ```
 
 ---
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/5460ab67-bd5d-47c4-a99f-ac14c983077c" />
+
 
 ## 17. SolveActivity - Giải toán và gửi API
 
@@ -505,6 +538,7 @@ Kết quả API trả về:
 ```
 
 ---
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/19cb78ac-76c6-46ac-afd2-e8e6be920df8" />
 
 ## 18. WebActivity - WebView
 
@@ -529,6 +563,8 @@ webView.loadUrl(WEB_URL);
 ```
 
 ---
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/55592dfb-d290-47f7-bf8b-8ce7431a432b" />
+
 
 ## 19. Build APK và chạy thử
 
@@ -547,6 +583,12 @@ app/build/outputs/apk/debug/app-debug.apk
 Cài app vào BlueStacks bằng cách kéo file APK vào cửa sổ BlueStacks.
 
 ---
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9b590b2c-d490-44b7-aeae-1312cf9a6c34" />
+
+# Kết Quả
+Giao diện 1
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/6cbfb7e0-d305-49f6-89fd-45ca00fbc674" />
+
 
 ## 20. Kiểm thử App2
 
@@ -557,32 +599,10 @@ Các trường hợp kiểm thử:
 | a    | b    | Kết quả                      |
 | ---- | ---- | ---------------------------- |
 | 2    | 1    | Nghiệm x = -0.50             |
-| 0    | 0    | Phương trình có vô số nghiệm |
-| 0    | 5    | Phương trình vô nghiệm       |
-| rỗng | rỗng | Vui lòng nhập đủ dữ liệu     |
 
-### Test API
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0dfc5924-6ec5-450a-983a-1ed078f264aa" />
 
-Sau khi bấm nút giải, app gửi dữ liệu lên:
-
-```text
-https://k58kmt.tdh.io.vn/api
-```
-
-Nếu thành công, app hiển thị:
-
-```text
-Gửi API thành công. STT: ...
-```
-
-### Test WebView
-
-Mở Activity WebView, app truy cập:
-
-```text
-https://k58kmt.tdh.io.vn/?masv=K225480106058
-```
-
+###Test API : Sau khi bấm nút giải, app gửi dữ liệu lên:
 ### Kiểm tra log
 
 Vào trang:
@@ -598,6 +618,20 @@ K225480106058
 ```
 
 ---
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1ea4ecba-75c5-4a97-ad34-7a1a0d0716a2" />
+
+
+### Test WebView
+
+Mở Activity WebView, app truy cập:
+
+```text
+https://k58kmt.tdh.io.vn/?masv=K225480106058
+```
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d0061f0b-2b30-4698-8235-1daf63953588" />
+
+
 
 # PHẦN 3: TRẢ LỜI CÂU HỎI THEO YÊU CẦU
 
